@@ -1,0 +1,12 @@
+.sale {
+  width: 40px;
+}
+
+/* solo afecta el componente*/
+h2 {
+  color:purple;
+}
+
+button{
+  background-color: purple;
+}

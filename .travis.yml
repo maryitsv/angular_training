@@ -1,0 +1,17 @@
+language: node_js
+addons:
+  chrome: stable
+
+node_js:
+   - "18.12"
+
+install:
+  - npm install -g @angular/cli
+  - npm install
+  - ng build --configuration=production
+
+sudo: false
+
+branches:
+  only:
+    - master

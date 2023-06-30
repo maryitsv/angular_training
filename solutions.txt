@@ -1,0 +1,10 @@
+LAB #1:
+No solution - just run the commands in a terminal
+
+---------------------------------------------------------------------------------------------------
+LAB C1 and further:
+
+ You can find all solutions at: https://github.com/alcfeoh/ng2-training-solutions
+ --------------------------------------------------------------------------------------------------
+
+

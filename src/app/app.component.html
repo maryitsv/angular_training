@@ -1,0 +1,22 @@
+<!-- Insert navigation component here -->
+<app-navigation></app-navigation>
+<main role="main">
+  <!-- Insert jumbotron component here -->
+  <app-jumbotron title="welcome to our store" description="browser our collection of license plates below"></app-jumbotron>
+  <div class="container">
+    <div class="row" >
+      <!-- License plates go here -->
+      
+      <app-license-plate 
+      class="col-md-4" 
+      *ngFor="let licensePlate of licensePlates; even as isEven;" 
+      appHighlight
+      [plate]="licensePlate"
+      buttonText="Add to cart" ></app-license-plate>
+    </div>
+  </div>
+</main>
+
+<footer class="container">
+  <p>&copy; License Plate Store {{now | date:'dd-MM-yyyy'}}</p>
+</footer>
