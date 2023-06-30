@@ -9,7 +9,7 @@
       
       <app-license-plate 
       class="col-md-4" 
-      *ngFor="let licensePlate of licensePlates; even as isEven;" 
+      *ngFor="let licensePlate of licensePlates$ | async ; even as isEven;" 
       appHighlight
       [plate]="licensePlate"
       buttonText="Add to cart" ></app-license-plate>

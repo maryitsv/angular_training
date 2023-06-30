@@ -1,42 +1,25 @@
-import { Component, OnDestroy } from '@angular/core';
-import {LicensePlate} from './license-plate';
+import { Component } from '@angular/core';
+import { LicensePlate} from './license-plate';
 import { LicensePlateService } from './license-plate.service';
-import { CALIFORNIA_PLATE } from './mock-data';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent implements OnDestroy{
+export class AppComponent {
   now = new Date();
-  licensePlates: LicensePlate[] = [];
-  licensePlate: LicensePlate = CALIFORNIA_PLATE;
-  subscription!: Subscription;
+  licensePlates$: Observable<LicensePlate[]> = of([]);
 
   constructor(public licensePlateService: LicensePlateService){
-    this.loadData();
-    this.createObservable();
-  }
-
-  loadData(){
-    this.subscription = this.licensePlateService.getList()
-    .subscribe(
-      list => this.licensePlates = list,
-      error=> console.error(error),
-      ()=>console.log('completed')
-      );
-  }
-
-  createObservable(){
-    let obs = new Observable(observer => {
-      observer.next(42);
-      observer.complete();
-    });
-    obs.subscribe(result=>console.log(result));
-  }
-
-  ngOnDestroy(){
-    this.subscription.unsubscribe();
+    this.licensePlates$ = this.licensePlateService.getList().pipe(
+      /*tap(// tab is used for side efects
+        data=> console.log(data)
+      ),*/
+      catchError(err => {
+        console.log(err);
+        return [];
+      })
+    );
   }
 }

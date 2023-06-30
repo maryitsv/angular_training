@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { LICENSE_PLATES} from "./mock-data";
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { LicensePlate } from './license-plate';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LicensePlateService {
 
-  constructor() { }
+  constructor(public httpClient: HttpClient) { }
 
   getList():Observable<LicensePlate[]>{
-    return of(LICENSE_PLATES);
+   return this.httpClient.get<LicensePlate[]>('http://localhost:8000/data');
   }
 }
