@@ -12,7 +12,8 @@
       *ngFor="let licensePlate of licensePlates$ | async ; even as isEven;" 
       appHighlight
       [plate]="licensePlate"
-      buttonText="Add to cart" ></app-license-plate>
+      buttonText="Add to cart"
+      (cartClicked)="licenseAddedToCart"></app-license-plate>
     </div>
   </div>
 </main>

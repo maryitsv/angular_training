@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {LicensePlate} from '../license-plate';
+import { CurrencyService } from '../currency.service';
 
 @Component({
   selector: 'app-license-plate',
@@ -14,9 +15,13 @@ export class LicensePlateComponent {
   @Input()
   buttonText!: string;
 
-  constructor() { }
+  @Output()
+  cartClicked: EventEmitter<LicensePlate> = new EventEmitter();
+
+  constructor(public currencyService:CurrencyService) { }
 
   buttonClicked(): void{
     alert("Plate added");
+    this.cartClicked.emit(this.plate);
   }
 }
