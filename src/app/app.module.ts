@@ -23,13 +23,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HighlightDirective } from './highlight.directive';
 import { CurrencyRendererPipe } from './currency-renderer.pipe';
+import { StoreViewComponent } from './store-view/store-view.component';
 
 @NgModule({
   declarations: [
     AppComponent, HelloComponent, LicensePlateComponent,
     LoginComponent, DialogComponent, HeaderComponent,
     CarouselComponent, CurrencySwitcherComponent,
-    CheckoutFormComponent, CheckoutViewComponent, CartViewComponent, JumbotronComponent, DashboardComponent, NavigationComponent, HighlightDirective, CurrencyRendererPipe
+    CheckoutFormComponent, CheckoutViewComponent, CartViewComponent, JumbotronComponent, DashboardComponent, NavigationComponent, HighlightDirective, CurrencyRendererPipe, StoreViewComponent
   ],
   imports: [
     BrowserModule,

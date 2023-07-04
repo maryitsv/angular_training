@@ -1,25 +1,9 @@
 <!-- Insert navigation component here -->
 <app-navigation></app-navigation>
+
 <main role="main">
-  <!-- Insert jumbotron component here -->
-  <app-jumbotron title="welcome to our store" description="browser our collection of license plates below"></app-jumbotron>
-  <div class="container">
-    <div class="row" >
-      <!-- License plates go here -->
-      
-      <app-license-plate 
-      class="col-md-4" 
-      *ngFor="let licensePlate of licensePlates$ | async ; even as isEven;" 
-      appHighlight
-      [plate]="licensePlate"
-      buttonText="Add to cart"
-      (cartClicked)="licenseAddedToCart($event)"></app-license-plate>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </main>
-<app-dialog [isOpen]="showDialog" (onClose)="dialogClosed()">
-  Super!! item added to the cart
-</app-dialog>
 
 <footer class="container">
   <p>&copy; License Plate Store {{now | date:'dd-MM-yyyy'}}</p>
