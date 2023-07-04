@@ -13,10 +13,13 @@
       appHighlight
       [plate]="licensePlate"
       buttonText="Add to cart"
-      (cartClicked)="licenseAddedToCart"></app-license-plate>
+      (cartClicked)="licenseAddedToCart($event)"></app-license-plate>
     </div>
   </div>
 </main>
+<app-dialog [isOpen]="showDialog" (onClose)="dialogClosed()">
+  Super!! item added to the cart
+</app-dialog>
 
 <footer class="container">
   <p>&copy; License Plate Store {{now | date:'dd-MM-yyyy'}}</p>

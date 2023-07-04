@@ -21,7 +21,6 @@ export class LicensePlateComponent {
   constructor(public currencyService:CurrencyService) { }
 
   buttonClicked(): void{
-    alert("Plate added");
     this.cartClicked.emit(this.plate);
   }
 }
